@@ -1,14 +1,29 @@
 {
-  "name": "vue-bootstrap-components",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@glitchbl/vue-bootstrap-components",
+  "version": "0.0.6",
+  "private": false,
+  "main": "./dist/vue-bootstrap-components.common.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --target lib --formats commonjs --name vue-bootstrap-components ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.10.2",
+    "bootstrap": "^4.3.1",
     "core-js": "^2.6.5",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "popper.js": "^1.15.0",
+    "tempusdominus-bootstrap-4": "^5.1.2",
     "vue": "^2.6.10"
   },
   "devDependencies": {
