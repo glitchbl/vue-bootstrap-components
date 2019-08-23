@@ -1,6 +1,6 @@
 <template>
-    <div class="d-flex align-items-center">
-        <input type="text" class="form-control d-inline-block" :name="name" :value="date" ref="input" :required="typeof required != 'undefined'" @click="onClick" :placeholder="placeholder">
+    <div class="d-flex align-items-center position-relative">
+        <div class="position-relative"><input type="text" class="form-control d-inline-block" :name="name" :value="date" ref="input" :required="typeof required != 'undefined'" @click="onClick" :placeholder="placeholder"></div>
         &nbsp;&nbsp;<a href="#" @click.prevent="onClear"><i class="fas fa-times fa-2x text-danger" aria-hidden="true"></i></a>
     </div>
 </template>
