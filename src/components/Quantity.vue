@@ -2,7 +2,7 @@
     <div>
         <div v-if="!loading">
             <a href="#" class="text-black" @click.prevent="onDecrement"><i class="fas fa-minus-circle"></i></a>
-            <span>{{ quantity }}</span>
+            <span style="margin-left: 3px; margin-right: 3px">{{ quantity }}</span>
             <input v-if="name" type="hidden" :name="name" :value="quantity">
             <a href="#" class="text-black" @click.prevent="onIncrement"><i class="fas fa-plus-circle"></i></a>
         </div>

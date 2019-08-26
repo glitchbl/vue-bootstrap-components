@@ -1,15 +1,12 @@
 <template>
-    <div class="row">
-        <label class="col-sm-4 col-form-label pt-0">{{ label }}</label>
-        <div class="col-sm-8">
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" :id="`radio-${id}-true`" :name="name" v-model="data" :value="true" class="custom-control-input">
-                <label class="custom-control-label" :for="`radio-${id}-true`">{{ textTrue }}</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" :id="`radio-${id}-false`" :name="name" v-model="data" :value="false" class="custom-control-input">
-                <label class="custom-control-label" :for="`radio-${id}-false`">{{ textFalse }}</label>
-            </div>
+    <div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" :id="`radio-${id}-true`" :name="name" v-model="data" :value="true" class="custom-control-input">
+            <label class="custom-control-label" :for="`radio-${id}-true`">{{ textTrue }}</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" :id="`radio-${id}-false`" :name="name" v-model="data" :value="false" class="custom-control-input">
+            <label class="custom-control-label" :for="`radio-${id}-false`">{{ textFalse }}</label>
         </div>
     </div>
 </template>
