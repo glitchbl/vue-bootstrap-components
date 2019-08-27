@@ -1,19 +1,31 @@
 <template>
-    <div class="d-flex align-items-center position-relative">
-        <div class="position-relative"><input type="text" class="form-control d-inline-block" :name="name" :value="date" ref="input" :required="typeof required != 'undefined'" @click="onClick" :placeholder="placeholder"></div>
-        &nbsp;&nbsp;<a href="#" @click.prevent="onClear"><i class="fas fa-times fa-2x text-danger" aria-hidden="true"></i></a>
+    <div>
+        <div class="d-flex align-items-center">
+            <div class="position-relative flex-grow-1">
+                <input type="text" class="form-control d-inline-block" :name="name" :value="date" ref="input" @click="onClick" :placeholder="placeholder" v-error="error">
+            </div>
+            &nbsp;&nbsp;
+            <a href="#" @click.prevent="onClear"><i class="fas fa-trash-alt fa-2x text-danger" aria-hidden="true"></i></a>
+        </div>
+        <Error :error="error"></Error>
     </div>
 </template>
 <script>
     const $ = window.$ = window.jQuery = require('jquery');
+
     const moment = window.moment = require('moment');
     require('moment/locale/fr.js');
 
     require('tempusdominus-bootstrap-4');
     require('tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.css');
 
-	export default {
-        props: ['name', 'value', 'type', 'required', 'min', 'placeholder'],
+    import Error from './Error.vue';
+    
+    export default {
+        components: {
+            Error,
+        },
+        props: ['name', 'value', 'type', 'min', 'placeholder', 'error'],
         data() {
             let format = 'DD/MM/YYYY';
             if (this.type == 'time') format = 'HH:mm';

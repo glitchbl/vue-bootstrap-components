@@ -1,16 +1,25 @@
 <template>
-    <div class="custom-file">
-        <input :name="name" type="file" class="custom-file-input" :id="`form-file-${id}`" @input="onInput">
-        <label class="custom-file-label" :for="`form-file-${id}`" :data-browse="labelBrowse || 'Browse'">{{ value || label }}</label>
+    <div>
+        <div class="custom-file">
+            <input :name="name" type="file" class="custom-file-input" :id="`vc-file-${id}`" @input="onInput" v-error="error">
+            <label class="custom-file-label" :for="`vc-file-${id}`" :data-browse="labelBrowse || 'Browse'">{{ label }}</label>
+        </div>
+        <Error :error="error"></Error>
     </div>
 </template>
 <script>
     import Utils from '../utils';
+    import Error from './Error.vue';
+    
     export default {
-        props: ['value', 'label', 'labelBrowse', 'name'],
+        components: {
+            Error,
+        },
+        props: ['placeholder', 'labelBrowse', 'name', 'error'],
         data() {
             return {
                 id: Utils.generateId(),
+                label: this.placeholder,
             }
         },
         methods: {

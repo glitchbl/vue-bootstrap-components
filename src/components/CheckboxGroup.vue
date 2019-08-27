@@ -1,18 +1,26 @@
 <template>
-    <div class="row">
-        <div v-for="(d, index) in data" :key="d" class="col-sm-4">
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" :name="name" class="custom-control-input" :id="`data-${id}-${index}`" 
-                        :value="d" v-model="model">
-                <label class="custom-control-label" :for="`data-${id}-${index}`">{{ d | capitalize }}</label>
+    <div>
+        <div class="row">
+            <div v-for="(d, index) in data" :key="d" class="col-sm-4">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" :name="name" class="custom-control-input" :id="`vc-checkbox-group-${id}-${index}`" 
+                            :value="d" v-model="model" v-error="error">
+                    <label class="custom-control-label" :for="`vc-checkbox-group-${id}-${index}`">{{ d | capitalize }}</label>
+                </div>
             </div>
         </div>
+        <Error :error="error"></Error>
     </div>
 </template>
 <script>
     import Utils from '../utils';
+    import Error from './Error.vue';
+    
     export default {
-        props: ['data', 'value', 'name'],
+        components: {
+            Error,
+        },
+        props: ['data', 'value', 'name', 'error'],
         data() {
             return {
                 id: Utils.generateId(),
