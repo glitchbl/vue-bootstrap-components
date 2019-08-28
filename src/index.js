@@ -4,12 +4,17 @@ import Utils from './utils'
 
 import BooleanRadio from './components/BooleanRadio.vue'
 import Button from './components/Button.vue'
-import CheckboxGroup from './components/CheckboxGroup.vue'
+import Checkbox from './components/Checkbox.vue'
 import Datetime from './components/Datetime.vue'
 import File from './components/File.vue'
 import Quantity from './components/Quantity.vue'
 import Select from './components/Select.vue'
 import Data from './components/Data.vue'
+import Text from './components/Text.vue'
+import TextArea from './components/TextArea.vue'
+import Radio from './components/Radio.vue'
+import Check from './components/Check.vue'
+import Switch from './components/Switch.vue'
 
 Vue.mixin({
     filters: {
@@ -36,10 +41,15 @@ Vue.directive('error', {
 export {
     BooleanRadio,
     Button,
-    CheckboxGroup,
+    Checkbox,
     Datetime,
     File,
     Quantity,
     Select,
     Data,
+    Text,
+    TextArea,
+    Radio,
+    Check,
+    Switch,
 }

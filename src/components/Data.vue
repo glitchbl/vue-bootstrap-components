@@ -1,12 +1,14 @@
 <template>
-    <div class="row align-items-center">
-        <div class="col-sm-5">
-            <input type="text" :name="name" class="form-control" @keyup.enter.prevent="onAdd" :placeholder="placeholder" v-error="error">
-            <Error :error="error"></Error>
+    <div>
+        <div class="row align-items-center">
+            <div class="col-sm-5">
+                <input type="text" :name="name" class="form-control" @keyup.enter.prevent="onAdd" :placeholder="placeholder" v-error="error">
+            </div>
+            <div class="col-sm-7">
+                <a href="" @click.prevent="onDelete(d)" v-for="d in data" :key="d"><span class="badge mr-1" :class="badgeClass">{{ d }}</span></a>
+            </div>
         </div>
-        <div class="col-sm-7">
-            <a href="" @click.prevent="onDelete(d)" v-for="d in data" :key="d"><span class="badge badge-primary mr-1">{{ d }}</span></a>
-        </div>
+        <Error :error="error"></Error>
     </div>
 </template>
 <script>
@@ -20,6 +22,14 @@
         data() {
             return {
                 data: this.value,
+            }
+        },
+        computed: {
+            badgeClass: function() {
+                return {
+                    'badge-primary': !this.error,
+                    'badge-danger': this.error,
+                }
             }
         },
         watch: {

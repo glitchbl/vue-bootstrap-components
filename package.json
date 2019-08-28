@@ -1,6 +1,6 @@
 {
   "name": "@glitchbl/vue-bootstrap-components",
-  "version": "0.0.9",
+  "version": "0.0.12",
   "private": false,
   "main": "./dist/vue-bootstrap-components.common.js",
   "files": [
