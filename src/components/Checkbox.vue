@@ -1,11 +1,11 @@
 <template>
     <div>
         <div class="row">
-            <div v-for="(d, index) in data" :key="d" class="col-sm-4">
-                <div class="custom-control custom-checkbox">
+            <div v-for="(d, index) in data" :key="getName(d)" :class="{'col-sm-4': inline, 'col-sm-12': !inline}">
+                <div class="custom-control custom-checkbox" >
                     <input type="checkbox" :name="name" class="custom-control-input" :id="`vc-checkbox-group-${id}-${index}`" 
-                            :value="d" v-model="model" v-error="error">
-                    <label class="custom-control-label" :for="`vc-checkbox-group-${id}-${index}`">{{ d | capitalize }}</label>
+                            :value="getValue(d)" v-model="model" v-error="error">
+                    <label class="custom-control-label" :for="`vc-checkbox-group-${id}-${index}`">{{ getName(d) }}</label>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
         components: {
             Error,
         },
-        props: ['data', 'value', 'name', 'error'],
+        props: ['data', 'value', 'name', 'inline', 'error'],
         data() {
             return {
                 id: Utils.generateId(),

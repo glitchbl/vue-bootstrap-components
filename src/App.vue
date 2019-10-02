@@ -9,10 +9,11 @@
             <BooleanRadio label="True or False?" text-true="True" text-false="False" v-model="BooleanRadio" :error="error"></BooleanRadio>
             <h3 class="mt-1">Button</h3>
             <Button text="Submit" :loading="false" text-loading="Loading..." @click="button"></Button> &nbsp;
+            <Button text="Submit" :loading="false" text-loading="Loading..." vc-class="btn btn-sm btn-danger" @click="button"></Button> &nbsp;
             <Button text="Submit" :loading="true" text-loading="Loading..." @click="button"></Button>
             <h3 class="mt-1 mb-0">Checkbox</h3>
             <small class="d-block mb-2 ml-1" style="color: grey">Value : {{ Checkbox }}</small>
-            <Checkbox :data="['value1', 'value2', 'value3']" v-model="Checkbox" :error="error"></Checkbox>
+            <Checkbox :data="[['value1', 1], ['value2', 2], ['value3', 3]]" v-model="Checkbox" :error="error"></Checkbox>
             <h3 class="mt-1 mb-0">Datetime</h3>
             <small class="d-block mb-2 ml-1" style="color: grey">Value : {{ Datetime }}</small>
             <div class="mt-1"><Datetime placeholder="Datetime" type="datetime" v-model="Datetime"></Datetime></div>
@@ -23,21 +24,25 @@
             <h3 class="mt-1 mb-0">Quantity</h3>
             <small class="d-block mb-2 ml-1" style="color: grey">Value : {{ Quantity }}</small>
             <Quantity :loading="false" name="test" v-model="Quantity" :error="error"></Quantity>
+            <Quantity :loading="true" :error="error"></Quantity>
             <h3 class="mt-1 mb-0">Select</h3>
             <small class="d-block mb-2 ml-1" style="color: grey">Value : {{ Select }}</small>
-            <Select placeholder="Select a value" :data="['value1', 'value2', 'value3']" v-model="Select" :error="error"></Select>
+            <Select :data="[['value1', 1], ['value2', 2], ['value3', 3]]" v-model="Select" :error="error"></Select>
             <h3 class="mt-1 mb-0">Data</h3>
             <small class="d-block mb-2 ml-1" style="color: grey">Value : {{ Data }}</small>
             <Data placeholder="Add a data" v-model="Data" :error="error"></Data>
             <h3 class="mt-1 mb-0">InputText</h3>
             <small class="d-block mb-2 ml-1" style="color: grey">Value : {{ InputText }}</small>
             <VCText placeholder="Text" v-model="InputText" :error="error"></VCText>
+            <div class="mt-1"><VCText placeholder="Password" v-model="InputText" :error="error" vc-class="form-control form-control-sm" type="password"></VCText></div>
+            <div class="mt-1"><VCText :error="error" vc-class="form-control form-control-sm" type="tel"></VCText></div>
             <h3 class="mt-1 mb-0">TextArea</h3>
             <small class="d-block mb-2 ml-1" style="color: grey">Value : {{ TextArea }}</small>
             <TextArea placeholder="TextArea" v-model="TextArea" :error="error"></TextArea>
             <h3 class="mt-1 mb-0">Radio</h3>
             <small class="d-block mb-2 ml-1" style="color: grey">Value : {{ Radio }}</small>
-            <Radio :data="['Value1', 'Value2']" v-model="Radio" :inline="true" :error="error"></Radio>
+            <Radio :data="[['Value1', 1], ['Value2', 2]]" v-model="Radio" :inline="false" :error="error"></Radio>
+            <Radio :data="['Value1', 'Value2']" :inline="true" :error="error"></Radio>
             <h3 class="mt-1 mb-0">Check</h3>
             <small class="d-block mb-2 ml-1" style="color: grey">Value : {{ Check }}</small>
             <Check text="Is this a check ?" v-model="Check" :error="error"></Check>
@@ -86,10 +91,10 @@ export default {
             error: null,
             show_error: false,
             BooleanRadio: null,
-            Checkbox: ['value2', 'value3'],
+            Checkbox: [1, 2],
             Datetime: '23/08/2019 18:00',
             Quantity: 1,
-            Select: null,
+            Select: 2,
             InputText: '',
             TextArea: '',
             Radio: '',

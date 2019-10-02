@@ -1,12 +1,12 @@
 <template>
     <div>
         <div v-if="!loading">
-            <a href="#" @click.prevent="onDecrement" :class="textClass"><i class="fas fa-minus-circle"></i></a>
-            <span style="margin-left: 3px; margin-right: 3px" :class="textClass">{{ quantity }}</span>
+            <a href="#" @click.prevent="onDecrement" :class="buttonClass"><i class="fas fa-minus-circle"></i></a>
+            <span style="margin-left: 3px; margin-right: 3px" :class="errorClass">{{ quantity }}</span>
             <input v-if="name" type="hidden" :name="name" :value="quantity">
-            <a href="#" @click.prevent="onIncrement" :class="textClass"><i class="fas fa-plus-circle"></i></a>
+            <a href="#" @click.prevent="onIncrement" :class="buttonClass"><i class="fas fa-plus-circle"></i></a>
         </div>
-        <div v-else class="text-center">
+        <div v-else>
             <div class="spinner-border spinner-border-sm text-black" role="status">
             </div>
         </div>
@@ -20,7 +20,7 @@
         components: {
             Error,
         },
-        props: ['value', 'loading', 'name', 'error'],
+        props: ['value', 'loading', 'name', 'error', 'vcClass'],
         data() {
             return {
                 quantity: this.value,
@@ -35,11 +35,16 @@
             }
         },
         computed: {
-            textClass: function() {
+            errorClass: function() {
                 return {
-                    'text-danger': this.error,
-                }
+                    'text-danger': this.error
+                };
             },
+            buttonClass: function() {
+                let obj = {...this.errorClass};
+                obj[this.vcClass] = !this.error;
+                return obj;
+            }
         },
         methods: {
             onIncrement() {

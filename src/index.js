@@ -20,6 +20,14 @@ Vue.mixin({
     filters: {
         capitalize: Utils.capitalize.bind(this),
     },
+    methods: {
+        getName(d) {
+            return Array.isArray(d)? d[0]: String(d).charAt(0).toUpperCase() + String(d).slice(1);
+        },
+        getValue(d) {
+            return Array.isArray(d) && d.length > 1? d[1]: d;
+        },
+    }
 })
 
 function validateElement(el, error) {

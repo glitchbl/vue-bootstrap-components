@@ -30,13 +30,5 @@
                 this.$emit('input', this.model);
             }
         },
-        methods: {
-            getName(d) {
-                return Array.isArray(d)? d[0]: d;
-            },
-            getValue(d) {
-                return Array.isArray(d) && d.length > 1? d[1]: d;
-            },
-        }
     }
 </script>

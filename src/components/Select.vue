@@ -1,8 +1,8 @@
 <template>
     <div>
         <select :name="name" class="custom-select" v-model="model" v-error="error">
-            <option :value="null">{{ placeholder }}</option>
-            <option v-for="d in data" :value="d" :key="d">{{ d | capitalize }}</option>
+            <option v-if="placeholder != undefined" :value="null">{{ placeholder }}</option>
+            <option v-for="d in data" :value="getValue(d)" :key="getName(d)">{{ getName(d) }}</option>
         </select>
         <Error :error="error"></Error>
     </div>
@@ -17,12 +17,12 @@
         props: ['placeholder', 'data', 'value', 'name', 'error'],
         data() {
             return {
-                model: this.data.includes(this.value)? this.value: null,
+                model: this.data.map(this.getValue).includes(this.value)? this.value: null,
             }
         },
         watch: {
             'value': function() {
-                this.model = this.data.includes(this.value)? this.value: null;
+                this.model = this.data.map(this.getValue).includes(this.value)? this.value: null;
             },
             'model': function() {
                 this.$emit('input', this.model);

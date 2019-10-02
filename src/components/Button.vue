@@ -1,5 +1,5 @@
 <template>
-    <button type="submit" class="btn btn-primary" :disabled="loading" @click="$emit('click')">
+    <button type="submit" :class="this.vcClass || 'btn btn-primary'" :disabled="loading" @click="$emit('click')">
         <template v-if="loading">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             {{ textLoading }}
@@ -11,6 +11,6 @@
 </template>
 <script>
     export default {
-        props: ['loading', 'text', 'textLoading']
+        props: ['loading', 'text', 'textLoading', 'vcClass'],
     }
 </script>

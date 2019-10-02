@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" :id="`vc-check-${id}`" :name="name" v-model="model" v-error="error">
+            <input type="checkbox" class="custom-control-input" :id="`vc-check-${id}`" :name="name" v-model="model" v-error="error" value="1">
             <label class="custom-control-label" :for="`vc-check-${id}`">{{ text }}</label>
         </div>
         <Error :error="error"></Error>
