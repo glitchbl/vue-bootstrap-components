@@ -15,11 +15,17 @@
         components: {
             Error,
         },
-        props: ['placeholder', 'labelBrowse', 'name', 'error'],
+        props: ['placeholder', 'labelBrowse', 'name', 'error', 'value'],
         data() {
             return {
                 id: Utils.generateId(),
                 label: this.placeholder,
+            }
+        },
+        watch: {
+            'value': function() {
+                if (!this.value)
+                    this.label = this.placeholder;
             }
         },
         methods: {

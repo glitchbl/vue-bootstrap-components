@@ -20,7 +20,7 @@
             <div class="mt-1"><Datetime placeholder="Datetime" type="date" value="21/12/2012" :error="error"></Datetime></div>
             <div class="mt-1"><Datetime placeholder="Datetime" type="time" value="15:00"></Datetime></div>
             <h3 class="mt-1">File</h3>
-            <File placeholder="Choose a file" label-browse="Browse" :error="error"></File>
+            <File placeholder="Choose a file" label-browse="Browse" :error="error" v-model="File"></File>
             <h3 class="mt-1 mb-0">Quantity</h3>
             <small class="d-block mb-2 ml-1" style="color: grey">Value : {{ Quantity }}</small>
             <Quantity :loading="false" name="test" v-model="Quantity" :error="error"></Quantity>
@@ -93,6 +93,7 @@ export default {
             BooleanRadio: null,
             Checkbox: [1, 2],
             Datetime: '23/08/2019 18:00',
+            File: null,
             Quantity: 1,
             Select: 2,
             InputText: '',
